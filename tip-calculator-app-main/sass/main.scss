@@ -1,0 +1,462 @@
+//primary colors
+$Strong-cyan: hsl(172, 67%, 45%);
+
+// neutral colors
+$Very-dark-cyan: hsl(183, 100%, 15%);
+$Dark-grayish-cyan: hsl(186, 14%, 43%);
+$Grayish-cyan: hsl(184, 14%, 56%);
+$Light-grayish-cyan: hsl(185, 41%, 84%);
+$Very-light-grayish-cyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+
+//resetting values
+*,
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//main page styling
+body {
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    background-color: $Light-grayish-cyan;
+}
+
+//accesibility
+.sr-only {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip-path: circle(0);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+//logo
+.logo {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+//main 
+main {
+    position: relative;
+    top: 150px;
+    padding: 2rem;
+    border-radius: 1.2rem;
+    background-color: $White;
+
+    h2 {
+        margin: 1rem 0 1.5rem;
+        font-size: 1rem;
+        color: $Dark-grayish-cyan;
+    }
+}
+
+//styling inputs outlines and spin (arrows) for number inputs
+input {
+    border: none;
+    width: 100%;
+
+    &[class="input-number"] {
+        margin: 0.4rem 0;
+        height: 2.5rem;
+    }
+
+   
+    &:hover, &:focus {
+        outline: solid 2px $Strong-cyan;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+//adding pointer cursor for inputs/buttons
+.reset:hover, label:hover, input:hover {
+    cursor: pointer;
+}
+
+//fieldset styling
+fieldset  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 25vh;
+    border: none;
+    margin: 0 auto;
+
+    //styling radio inputs and their labels
+    label {
+        position: relative;
+        text-align: center;
+        width: 45%;
+        margin-right: 0.6rem;
+        color: $White;
+        z-index: 9;
+
+        &:hover {
+            color: $Very-dark-cyan;
+        }
+
+        &:has(input:focus) {
+            color: $Very-dark-cyan;
+        }
+    }
+
+    // styling inputs
+    input[type=number], input[type=radio] {
+        appearance: none;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        z-index: -1;
+        -moz-appearance: textfield;
+    }
+
+    input[type=radio] {
+        background-color: $Very-dark-cyan;
+
+        &:hover, &:focus {
+            background-color: $Strong-cyan;
+        }
+    }
+}
+
+// styling number inputs
+input[type=number] {
+    text-align: right;
+    padding-right: 1rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    color: $Very-dark-cyan;
+    background-color: $Very-light-grayish-cyan;
+
+    &::placeholder {
+        color: $Dark-grayish-cyan;
+    }
+}
+
+// icons in input
+.input-container {
+    position: relative;
+}
+
+.bill-container, .person-container {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+// summary
+.summary {
+    height: 280px;
+    margin-top: 2rem;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.2rem;
+    background-color: $Very-dark-cyan;
+
+    p {
+        position: relative;
+        color: $White;
+        font-size: 1.2rem;
+        padding-bottom: 1.2rem;
+
+        
+    }
+
+    // reset button
+    .reset {
+        margin-top: 1rem;
+        height: 3rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $Very-dark-cyan;
+        background-color: $Strong-cyan;
+
+        &:hover, &:focus {
+            background-color: $Light-grayish-cyan;
+        }
+    }
+
+    .disabled {
+        color: rgba(0,73,77,0.5);
+        background-color: rgba(191, 191, 191,0.3);
+        cursor: default;
+    }
+}
+
+
+//summary paragraphs
+
+.person {
+    color: $Grayish-cyan;
+    font-size: 0.9rem;
+    
+    &::before {
+        content: '\a';
+        white-space: pre;
+        
+    }
+}
+
+.per-person {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translate(-100%);
+    font-size: 2.2rem;
+    color: $Strong-cyan;
+}
+
+//footer
+footer {
+    position: relative;
+    top: 160px;
+    text-align: center;
+    font-size: 1rem;
+    color: $Dark-grayish-cyan;
+
+    a {
+        text-decoration: none;
+        color: $Very-dark-cyan;
+    }
+}
+
+.warning-text {
+    position: absolute;
+    top: -60%;
+    left: 100%;
+    transform: translateX(-100%);
+    width: 110px;
+    color: tomato;
+    font-size: 0.8rem;
+}
+
+.warning {
+    outline: solid 1px red;
+}
+
+
+
+//desktop
+@media (min-width: 1200px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+    }
+
+    main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 75vw;
+        max-width: 1200px;
+
+        input[type=number] {
+            font-size: inherit;
+        }
+    }
+
+    
+
+    .inputs-container {
+        width: 50%;
+
+            h2 {
+                font-size: 1.2rem;
+                margin: 0;
+        }
+
+        
+
+       .select-tip-container {
+            fieldset {
+                height: 70%;
+
+                label {
+                    width: 29%;
+                    margin-right: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            h2 {
+                margin: 1.5rem 0 1rem;
+            }
+       }
+
+       .person-container {
+
+            h2 {
+                margin-top: 1.5rem;;
+            }
+       }
+
+    }
+
+    .summary {
+        position: relative;
+        height: 40vh;
+        width: 50%;
+        margin: 0;
+        margin-left: 2rem;
+        padding: 2.5rem;
+        
+        p {
+            margin-bottom: 1rem;
+
+            .per-person {
+                font-size: 3rem;
+            }
+        }
+
+        .reset {
+            margin-top: 3.5rem;
+        }
+    }
+    
+
+    footer {
+        position: absolute;
+        top: 90%;
+    }
+}
+
+//ipads
+@media (min-width: 992px)  {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+    }
+
+    main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 75vw;
+        max-width: 1200px;
+    }
+
+    .inputs-container {
+        width: 50%;
+
+            h2 {
+                font-size: 1.2rem;
+                margin: 0;
+        }
+
+       .select-tip-container {
+            fieldset {
+                height: 70%;
+
+                label {
+                    width: 29%;
+                    margin-right: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            h2 {
+                margin: 1.5rem 0 1rem;
+            }
+       }
+
+       .person-container {
+
+            h2 {
+                margin-top: 1.5rem;;
+            }
+       }
+
+    }
+
+    .summary {
+        position: relative;
+        height: 40vh;
+        width: 50%;
+        margin: 0;
+        margin-left: 2rem;
+        padding: 2.5rem;
+        
+        p {
+            margin-bottom: 1rem;
+
+            .per-person {
+                font-size: 3rem;
+            }
+        }
+    }
+
+    input[type=number] {
+        font-size: 1rem;
+    }
+
+    footer {
+        position: absolute;
+        top: 90%;
+    }
+}
+
+// small phones
+@media (max-width: 320px) {
+
+    main {
+        padding: 1rem;
+    }
+    
+    input[placeholder="Custom"] {
+        font-size: 1.2rem;
+    }
+
+    .summary {
+        p {
+            font-size: 0.8rem;
+        }
+    }
+
+    .per-person {
+        font-size: 1.6rem;
+    }
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 576px) {
+    fieldset {
+        height: 50vh;
+    }
+}
+
+@media (min-width: 768px) and (orientation: portrait){
+    fieldset {
+        height: 20vh;
+    }
+}
