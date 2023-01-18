@@ -218,6 +218,9 @@ footer a {
     align-items: center;
     height: 100vh;
   }
+  .logo {
+    top: 7rem;
+  }
   main {
     position: absolute;
     top: 50%;
@@ -274,12 +277,15 @@ footer a {
     top: 90%;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1200px) {
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
+  }
+  .logo {
+    top: 5.5rem;
   }
   main {
     position: absolute;
@@ -324,7 +330,7 @@ footer a {
     margin-bottom: 1rem;
   }
   .summary p .per-person {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   input[type=number] {
     font-size: 1rem;
